@@ -13,8 +13,8 @@ const boot = async () => {
             dbName: config.mongodb.dbName,
             retryWrites: true,
         })
-        .then(() => app.listen(config.port))
-        .then(() => console.log(`Server is listening on port ${config.port}`))
+        .then(() => app.listen(5000))
+        .then(() => console.log("Connected TO Database and Listening TO Localhost 5000"))
         .catch((err) => console.log(err));
 };
 
