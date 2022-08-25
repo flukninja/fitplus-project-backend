@@ -2,8 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("./config");
 const app = require('./api/index.js')
+const cors = require("cors");
 
 // middleware
+app.use(cors());
 
 const boot = async () => {
     await mongoose
