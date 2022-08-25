@@ -7,6 +7,7 @@ const config = require("../config");
 
 const app = express();
 
+app.use(cors());
 if (config.isVercel) {
     app.use(async (req, res, next) => {
         await mongoose.connect(config.mongodb.uri, {
@@ -19,7 +20,6 @@ if (config.isVercel) {
     });
 }
 
-app.use(cors());
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
