@@ -19,7 +19,11 @@ if (config.isVercel) {
     });
 }
 
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials: true,
+  }));
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
