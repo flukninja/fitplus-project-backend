@@ -2,6 +2,8 @@ const User = require ("../model/User");
 const bcrypt = require ("bcryptjs");
 
 exports.getAllUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
     let users;
     try {
         users = await User.find();
